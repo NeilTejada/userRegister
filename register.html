@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--register form-->
+    <h2>Register a New Student</h2>
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Email address:</label
+        >
+        <input
+          type="email"
+          class="form-control"
+          id="txtEmail"
+          aria-describedby="emailHelp"
+        />
+        <div id="emailHelp" class="form-text">
+          We'll never share your email with anyone else.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password:</label>
+        <input type="password" class="form-control" id="txtPassword" />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputFirstName" class="form-label"
+          >First Name:</label
+        >
+        <input type="text" class="form-control" id="txtFirstName" />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputLastName" class="form-label">Last Name:</label>
+        <input type="text" class="form-control" id="txtLastName" />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputAge" class="form-label">Age:</label>
+        <input type="text" class="form-control" id="txtAge" />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputGrade1" class="form-label">Grade 101:</label>
+        <input type="text" class="form-control" id="txtGrade101" />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputGrade2" class="form-label">Grade 102:</label>
+        <input type="text" class="form-control" id="txtGrade102" />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputGrade3" class="form-label">Grade 103:</label>
+        <input type="text" class="form-control" id="txtGrade103" />
+      </div>
+    </form>
+    <button type="submit" class="btn btn-primary" id="btnRegister">
+      Register
+    </button>
+    <script src="./scripts/jQuery3-7.js"></script>
+    <script src="./scripts/storeManager.js"></script>
+    <script src="./scripts/app.js"></script>
+  </body>
+</html>
