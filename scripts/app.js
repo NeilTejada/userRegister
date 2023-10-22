@@ -42,11 +42,66 @@ function registerStudent() {
     inputGrade103
   );
 
-  save(newStudent); //this is from the storeManager.js
+  if (studentIsValid(newStudent)) {
+    console.log("Student is valid");
+    save(newStudent); //this is from the storeManager.js
+
+    clearStudentForm();
+    console.log(newStudent);
+  } else {
+    console.log("Student is not valid");
+  }
 }
 
-//create validation
-function studentIsValid() {}
+// Create validation
+function studentIsValid(aStudent) {
+  const studentFieldNames = [
+    "studentEmail",
+    "studentPassword",
+    "studentAge",
+    "studentFirstName",
+    "studentLastName",
+    "studentGrade101",
+    "studentGrade102",
+    "studentGrade103",
+  ];
+  let studentValidation = true;
+
+  let inputFieldValues = {
+    studentEmail: $("#txtEmail"),
+    studentPassword: $("#txtPassword"),
+    studentAge: $("#txtAge"),
+    studentFirstName: $("#txtFirstName"),
+    studentLastName: $("#txtLastName"),
+    studentGrade101: $("#txtGrade101"),
+    studentGrade102: $("#txtGrade102"),
+    studentGrade103: $("#txtGrade103"),
+  };
+
+  studentFieldNames.forEach((fieldName) => {
+    let inputValue = aStudent[fieldName];
+    let inputElement = inputFieldValues[fieldName];
+    inputElement.removeClass("error");
+
+    if (inputValue === "") {
+      studentValidation = false;
+      inputElement.addClass("error");
+    }
+  });
+
+  return studentValidation;
+}
+
+function clearStudentForm() {
+  $("#txtEmail").val("");
+  $("#txtPassword").val("");
+  $("#txtAge").val("");
+  $("#txtFirstName").val("");
+  $("#txtLastName").val("");
+  $("#txtGrade101").val("");
+  $("#txtGrade102").val("");
+  $("#txtGrade103").val("");
+}
 
 function init() {
   //hook events
