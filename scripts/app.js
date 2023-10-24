@@ -44,10 +44,14 @@ function registerStudent() {
 
   if (studentIsValid(newStudent)) {
     console.log("Student is valid");
-    save(newStudent); //this is from the storeManager.js
+
+    save(newStudent); // This is from the storeManager.js
 
     clearStudentForm();
+
     console.log(newStudent);
+
+    readUsers();
   } else {
     console.log("Student is not valid");
   }
@@ -67,21 +71,23 @@ function studentIsValid(aStudent) {
   ];
   let studentValidation = true;
 
-  let inputFieldValues = {
-    studentEmail: $("#txtEmail"),
-    studentPassword: $("#txtPassword"),
-    studentAge: $("#txtAge"),
-    studentFirstName: $("#txtFirstName"),
-    studentLastName: $("#txtLastName"),
-    studentGrade101: $("#txtGrade101"),
-    studentGrade102: $("#txtGrade102"),
-    studentGrade103: $("#txtGrade103"),
-  };
+  // let inputFieldValues = {
+  //   studentEmail: $("#txtEmail"),
+  //   studentPassword: $("#txtPassword"),
+  //   studentAge: $("#txtAge"),
+  //   studentFirstName: $("#txtFirstName"),
+  //   studentLastName: $("#txtLastName"),
+  //   studentGrade101: $("#txtGrade101"),
+  //   studentGrade102: $("#txtGrade102"),
+  //   studentGrade103: $("#txtGrade103"),
+  // };
 
   studentFieldNames.forEach((fieldName) => {
     let inputValue = aStudent[fieldName];
-    let inputElement = inputFieldValues[fieldName];
+    let inputElement = $("#" + fieldName);
     inputElement.removeClass("error");
+
+    console.log(fieldName + ": " + inputValue);
 
     if (inputValue === "") {
       studentValidation = false;

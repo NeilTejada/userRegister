@@ -1,4 +1,5 @@
 function save(student) {
-  let stringValue = JSON.stringify(student);
-  localStorage.setItem("student", stringValue);
+  let stringValue = JSON.parse(localStorage.getItem("stringValue")) || [];
+  stringValue.push(student);
+  localStorage.setItem("stringValue", JSON.stringify(stringValue));
 }
