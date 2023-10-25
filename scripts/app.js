@@ -57,41 +57,56 @@ function registerStudent() {
 
 // Create validation
 function studentIsValid(aStudent) {
-  const studentFieldNames = [
-    "studentEmail",
-    "studentPassword",
-    "studentAge",
-    "studentFirstName",
-    "studentLastName",
-    "studentGrade101",
-    "studentGrade102",
-    "studentGrade103",
-  ];
   let studentValidation = true;
 
-  // let inputFieldValues = {
-  //   studentEmail: $("#txtEmail"),
-  //   studentPassword: $("#txtPassword"),
-  //   studentAge: $("#txtAge"),
-  //   studentFirstName: $("#txtFirstName"),
-  //   studentLastName: $("#txtLastName"),
-  //   studentGrade101: $("#txtGrade101"),
-  //   studentGrade102: $("#txtGrade102"),
-  //   studentGrade103: $("#txtGrade103"),
-  // };
-
-  studentFieldNames.forEach((fieldName) => {
-    let inputValue = aStudent[fieldName];
-    let inputElement = $("#" + fieldName);
-    inputElement.removeClass("error");
-
-    console.log(fieldName + ": " + inputValue);
-
-    if (inputValue === "") {
-      studentValidation = false;
-      inputElement.addClass("error");
-    }
-  });
+  if (aStudent.studentEmail === "") {
+    studentValidation = false;
+    $("#txtEmail").addClass("error");
+  } else {
+    $("#txtEmail").removeClass("error");
+  }
+  if (aStudent.studentPassword === "") {
+    studentValidation = false;
+    $("#txtPassword").addClass("error");
+  } else {
+    $("#txtPassword").removeClass("error");
+  }
+  if (aStudent.studentAge === "") {
+    studentValidation = false;
+    $("#txtAge").addClass("error");
+  } else {
+    $("#txtAge").removeClass("error");
+  }
+  if (aStudent.studentFirstName === "") {
+    studentValidation = false;
+    $("#txtFirstName").addClass("error");
+  } else {
+    $("#txtFirstName").removeClass("error");
+  }
+  if (aStudent.studentLastName === "") {
+    studentValidation = false;
+    $("#txtLastName").addClass("error");
+  } else {
+    $("#txtLastName").removeClass("error");
+  }
+  if (aStudent.studentGrade101 === "") {
+    studentValidation = false;
+    $("#txtGrade101").addClass("error");
+  } else {
+    $("#txtGrade101").removeClass("error");
+  }
+  if (aStudent.studentGrade102 === "") {
+    studentValidation = false;
+    $("#txtGrade102").addClass("error");
+  } else {
+    $("#txtGrade102").removeClass("error");
+  }
+  if (aStudent.studentGrade103 === "") {
+    studentValidation = false;
+    $("#txtGrade103").addClass("error");
+  } else {
+    $("#txtGrade103").removeClass("error");
+  }
 
   return studentValidation;
 }
@@ -112,4 +127,4 @@ function init() {
   $("#btnRegister").on("click", registerStudent);
 }
 
-window.onload = init();
+window.onload = init;
