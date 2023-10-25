@@ -21,5 +21,4 @@ function readUsers() {
   }
   studentTable.innerHTML = tr;
 }
-window.onload = readUsers();
-init();
+window.onload = readUsers;

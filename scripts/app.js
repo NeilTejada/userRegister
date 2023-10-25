@@ -50,8 +50,6 @@ function registerStudent() {
     clearStudentForm();
 
     console.log(newStudent);
-
-    readUsers();
   } else {
     console.log("Student is not valid");
   }
@@ -114,4 +112,4 @@ function init() {
   $("#btnRegister").on("click", registerStudent);
 }
 
-window.onload = init;
+window.onload = init();
