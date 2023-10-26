@@ -1,4 +1,7 @@
 //create the constructor
+
+let counter = 0;
+
 function Student(
   email,
   password,
@@ -7,7 +10,8 @@ function Student(
   age,
   grade101,
   grade102,
-  grade103
+  grade103,
+  ID
 ) {
   this.studentEmail = email;
   this.studentPassword = password;
@@ -17,6 +21,7 @@ function Student(
   this.studentGrade101 = grade101;
   this.studentGrade102 = grade102;
   this.studentGrade103 = grade103;
+  this.studentID = counter++;
 }
 
 //create registration
@@ -120,6 +125,24 @@ function clearStudentForm() {
   $("#txtGrade101").val("");
   $("#txtGrade102").val("");
   $("#txtGrade103").val("");
+}
+
+function deleteStudent(ID) {
+  console.log("Deleting student" + ID);
+  let deleteIndex;
+  let students = JSON.parse(localStorage.getItem("stringValue"));
+  //Remove from html using jQuery
+  $("#" + ID).remove();
+  console.log(students);
+  //Remove from array
+  for (let i = 0; i < students.length; i++) {
+    let student = students[i];
+    if (student.studentID == ID) {
+      deleteIndex = i;
+      let stringValue = students.splice(deleteIndex, 1);
+      localStorage.setItem("stringValue", JSON.stringify(stringValue));
+    }
+  }
 }
 
 function init() {
