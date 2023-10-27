@@ -1,4 +1,4 @@
-function readUsers() {
+function displayUsers() {
   const studentTable = document.getElementById("studentList");
   let tr = "";
 
@@ -8,7 +8,7 @@ function readUsers() {
     let student = stringValue[i];
 
     tr += `
-    <tr id="${student.studentID}">
+    <tr>
       <td>${student.studentEmail}</td>
       <td>${student.studentFirstName}</td>
       <td>${student.studentLastName}</td>
@@ -16,10 +16,9 @@ function readUsers() {
       <td>${student.studentGrade101}</td>
       <td>${student.studentGrade102}</td>
       <td>${student.studentGrade103}</td>
-      <td><button class="btn btn-danger" onClick="deleteStudent('${student.studentID}')">Delete</button></td>
     </tr>
   `;
   }
   studentTable.innerHTML = tr;
 }
-window.onload = readUsers;
+window.onload = displayUsers;
